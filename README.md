@@ -33,16 +33,16 @@ import (
 )
 
 func main() {
-    var l sync.RWMutex
-    // init a new instance
-    tk := tik.New()
+	var l sync.RWMutex
+	// init a new instance
+	tk := tik.New()
 	i := 0
 	cb := func() {
 		l.Lock()
 		i++
 		l.Unlock()
 	}
-    // schedule to run cb in 500ms
+	// schedule to run cb in 500ms
 	to := tk.Schedule(500, cb)
 
 	if !to.Pending() {
